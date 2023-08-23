@@ -18,7 +18,7 @@
 
 # STEP 1. Create a new Project in R Studio ====
 # Store this file inside the project directory
-
+ 
 # Loading Datasets ====
 ## STEP 2: Download a sample dataset from the UCI Machine Learning repository.====
 # Create a folder called "data" and store the following 2 files inside the "data" 
