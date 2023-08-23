@@ -1,0 +1,60 @@
+---
+title: "Business Intelligence Project"
+author: "Allan Omondi"
+date: "2023-11-23"
+output:
+  github_document: 
+    toc: yes
+    toc_depth: 4
+    fig_width: 6
+    fig_height: 4
+    df_print: default
+editor_options:
+  chunk_output_type: console
+---
+
+## Setup Chunk
+
+**Note:** the following KnitR options have been set as the global defaults: <BR> `knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy = TRUE)`.
+
+More KnitR options are documented here <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and here <https://yihui.org/knitr/options/>.
+
+```{r setup, include=FALSE}
+library(formatR)
+knitr::opts_chunk$set(
+  warning = FALSE,
+  collapse = FALSE
+)
+```
+
+# Understanding the Dataset (Exploratory Data Analysis (EDA))
+ 
+## Loading the Dataset
+
+The dataset that was used is available here: <https://drive.google.com/drive/folders/1igmH49mZiY3VWKHt21AvFFe-3kFRWsub?usp=sharing>
+
+```{r Dataset Loader}
+library(readr)
+
+su_advanceddb_bbit_2022_grades <- read_csv(
+  "../data/SU_AdvancedDB_BBIT_2022_Grades.csv",
+    col_types = cols(
+        Proj_Sec0 = col_number(),
+        Proj_Sec1 = col_number(), Proj_Sec2 = col_number(),
+        Proj_Sec3 = col_number(), Proj_Sec4 = col_number(),
+        Proj_Sec5 = col_number(), Proj_Sec6 = col_number(),
+        Proj_Sec7 = col_number(), Proj_Sec8 = col_number(),
+        Essay = col_number(), Quizzes = col_number(),
+        Labs = col_number(), CAT = col_number(),
+        Mid_Term_Evaluation = col_number(),
+        End_Term_Evaluation = col_number(),
+        Absenteeism_Percentage = col_number(),
+        CourseWork_Total = col_number(),
+        Exam = col_number(),
+        Final = col_number(),
+        Grade = col_factor(levels = c("A", "B", "C", "D", "E"))))
+
+summary(su_advanceddb_bbit_2022_grades)
+```
+
+...to be continued
