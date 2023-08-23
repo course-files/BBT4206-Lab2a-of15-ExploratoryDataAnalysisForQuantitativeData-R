@@ -28,9 +28,9 @@ This involves discovering what data is accessible, selecting the significant dat
 
 This involves describing data to better understand it. Through this understanding, outliers and noise can be removed, and missing data can be estimated (data imputation can be performed). For example, this stage can involve the correction of invalid postal codes, or the elimination of records with incorrect phone prefixes, or the removal of currency symbols, e.g., '\$', ¥, '€', etc. This can be performed by the data engineer.
 
--   [*Lab1-LoadingDatasets.R*](/Lab1-LoadingDatasets.R)
+-   *Lab1-LoadingDatasets.R*
 
--   *Lab2-ExploratoryDataAnalysis.R*
+-   [*Lab2-ExploratoryDataAnalysis.R*](/Lab2-ExploratoryDataAnalysis.R)
 
 -   *Lab3-DataImputation.R*
 
