@@ -720,4 +720,27 @@ featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
 ## Bevans, R. (2023). [Dataset]. Sample Crop Data Dataset for ANOVA (Version 1) [Dataset]. Scribbr. https://www.scribbr.com/wp-content/uploads//2020/03/crop.data_.anova_.zip # nolint ----
 
 # **Required Lab Work Submission** ----
-# The instructions will be posted soon.
+## Part A ----
+# Create a file called "Lab2-Submission-ExploratoryDataAnalysis.R". Provide all
+# the code you have used to perform an exploratory data analysis on your own
+# BI project dataset
+
+## Part B ----
+# Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted
+# on Github (do not upload the .R file itself) through the submission link
+# provided on eLearning.
+
+## Part C ----
+# Create a markdown file called "BIProject.Rmd" and place it inside the folder
+# called "markdown". The markdown should have a code chunk that explains the
+# most significant analysis performed on the BI Project dataset.
+# The emphasis should be on Explanatory Data Analysis (highlights the key
+# points or statistics performed) as opposed to
+# Exploratory Data Analysis (presents all the statistics performed on the
+# dataset). Exploratory Data Analysis re-creates the problem of information
+# overload.
+
+## Part D ----
+# Upload *the link* to "BIProject.md" (not .Rmd) markdown file hosted on Github
+# (do not upload the .Rmd or .md markdown files) through the submission link
+# provided on eLearning.
