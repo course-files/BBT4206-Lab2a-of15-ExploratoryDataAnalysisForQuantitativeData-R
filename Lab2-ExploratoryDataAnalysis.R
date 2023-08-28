@@ -723,7 +723,7 @@ featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
 ## Part A ----
 # Create a file called "Lab2-Submission-ExploratoryDataAnalysis.R". Provide all
 # the code you have used to perform an exploratory data analysis on your own
-# BI project dataset
+# BI project dataset.
 
 ## Part B ----
 # Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted
@@ -744,3 +744,7 @@ featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
 # Upload *the link* to "BIProject.md" (not .Rmd) markdown file hosted on Github
 # (do not upload the .Rmd or .md markdown files) through the submission link
 # provided on eLearning.
+
+## Part E ----
+# Perform Exploratory Data Analysis using the student performance dataset that
+# was created in class.
