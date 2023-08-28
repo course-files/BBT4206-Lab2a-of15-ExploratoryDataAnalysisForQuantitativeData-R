@@ -747,4 +747,4 @@ featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
 
 ## Part E ----
 # Perform Exploratory Data Analysis using the student performance dataset that
-# was created in class. 
+# was created in class.
