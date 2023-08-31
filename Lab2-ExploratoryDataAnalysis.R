@@ -40,7 +40,10 @@ iris_dataset <- read.csv("data/iris.data", header = FALSE,
 # names(iris_dataset) <- c("sepal length in cm", "sepal width in cm",
 #                         "petal length in cm", "petal width in cm", "class")
 
-library(readr)
+if (!is.element("readr", installed.packages()[,1])) { 
+  install.packages("readr", dependencies = TRUE) }
+require("readr")
+
 crop_dataset <- read_csv(
   "data/crop.data.csv",
   col_types = cols(
@@ -53,7 +56,10 @@ crop_dataset <- read_csv(
 View(crop_dataset)
 
 ## STEP 4. Load sample datasets that are provided as part of a package ----
-library(mlbench)
+if (!is.element("mlbench", installed.packages()[,1])) { 
+  install.packages("mlbench", dependencies = TRUE) }
+require("mlbench")
+
 data("PimaIndiansDiabetes")
 data("BostonHousing")
 
@@ -225,7 +231,10 @@ sapply(PimaIndiansDiabetes[, 1:8], var)
 # 2.	Kurtosis = 3 implies a medium number of outliers
 # 3.	Kurtosis > 3 implies a high number of outliers
 
-library(e1071)
+if (!is.element("e1071", installed.packages()[,1])) { 
+  install.packages("e1071", dependencies = TRUE) }
+require("e1071")
+
 sapply(BostonHousing[, -4],  kurtosis, type = 2)
 sapply(crop_dataset[, 4],  kurtosis, type = 2)
 sapply(iris_dataset[, 1:4],  kurtosis, type = 2)
@@ -645,7 +654,10 @@ barplot(table(PimaIndiansDiabetes[, 9]), main = names(PimaIndiansDiabetes)[9])
 
 # Execute the following to create a map to identify the missing data in each
 # dataset:
-library(Amelia)
+if (!is.element("Amelia", installed.packages()[,1])) { 
+  install.packages("Amelia", dependencies = TRUE) }
+require("Amelia")
+
 missmap(BostonHousing, col = c("red", "grey"), legend = TRUE)
 missmap(crop_dataset, col = c("red", "grey"), legend = TRUE)
 missmap(iris_dataset, col = c("red", "grey"), legend = TRUE)
