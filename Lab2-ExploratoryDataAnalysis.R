@@ -16,8 +16,47 @@
 # See LICENSE file for licensing information.
 # *****************************************************************************
 
-# STEP 1. Create a new Project in R Studio  or VS Code ----
+# STEP 1. Install and use renv ----
 # You can also create the project by cloning the repository provided on GitHub.
+
+# We will
+# Further reading:
+#   Summary: https://rstudio.github.io/renv/
+#   More detailed article: https://rstudio.github.io/renv/articles/renv.html
+# The renv package helps you create reproducible environments for your R
+# projects. This is helpful when working in teams because it makes your R
+# projects more isolated, portable and reproducible.
+
+# Install renv:
+install.packages("renv")
+
+# Use renv::init() to initialize renv in a new or existing project.
+renv::init()
+# This will set up a project library, containing all the packages you are
+# currently using. The packages (and all the metadata needed to reinstall
+# them) are recorded into a lockfile, renv.lock, and a .Rprofile ensures that
+# the library is used every time you open that project.
+
+# This can also be configured using the RStudio GUI when you click the project
+# file, e.g., "BBT4206-R.Rproj" in the case of this project. Then 
+# navigate to the "Environments" tab and select "Use renv with this project".
+
+# As you continue to work on your project, you will install and upgrade
+# packages, using either:
+# install.packages() and update.packages or
+# renv::install() and renv::update()
+
+# After you have confirmed that your code works as expected, use
+# renv::snapshot() to record the packages and their
+# sources in the lockfile.
+
+# Later, if you need to share your code with someone else or run your code on
+# a new machine, your collaborator (or you) can call renv::restore() to
+# reinstall the specific package versions recorded in the lockfile.
+
+# Execute the following code to reinstall the specific package versions
+# recorded in the lockfile:
+renv::restore()
 
 # Loading Datasets ----
 ## STEP 2: Download sample datasets ----
@@ -725,6 +764,12 @@ library(caret)
 featurePlot(x = iris_dataset[, 1:4], y = iris_dataset[, 5], plot = "box")
 featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
             plot = "box")
+
+### STEP 24. Create Multivariate Box and Whisker Plots by Class ====
+# Lastly, as a follow-up to STEP 1., record the packages installed and their
+# sources in the lockfile so that other team-members can use renv::restore()
+# to re-install the same package version in their local machine.
+renv::snapshot()
 
 # References ----
 ## Bevans, R. (2023). ANOVA in R | A Complete Step-by-Step Guide with Examples. Scribbr. Retrieved August 24, 2023, from https://www.scribbr.com/statistics/anova-in-r/ # nolint ---- # nolint
