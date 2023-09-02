@@ -47,7 +47,8 @@ Refer to the APA 7th edition manual for rules on how to cite datasets:
 ``` r
 library(readr)
 
-# Provide the executable R code inside the various code chunks as guided by the lab work.
+# Provide the executable R code inside the various code chunks as guided by the
+# lab work.
 ```
 
 …to be continued

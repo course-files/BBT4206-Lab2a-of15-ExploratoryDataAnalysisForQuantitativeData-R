@@ -804,7 +804,7 @@ renv::snapshot()
 # **Required Lab Work Submission** ----
 ## Part A ----
 # Create a file called "Lab2-Submission-ExploratoryDataAnalysis.R". Provide all
-# the code you have used to perform an exploratory data analysis on your own
+# the code you have used to perform an exploratory data analysis of your own
 # BI project dataset.
 
 ## Part B ----
