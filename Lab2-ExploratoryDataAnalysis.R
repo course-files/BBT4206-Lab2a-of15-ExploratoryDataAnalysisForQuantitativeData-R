@@ -17,31 +17,43 @@
 # *****************************************************************************
 
 # STEP 1. Install and use renv ----
-# You can also create the project by cloning the repository provided on GitHub.
-
-# We will
-# Further reading:
-#   Summary: https://rstudio.github.io/renv/
-#   More detailed article: https://rstudio.github.io/renv/articles/renv.html
 # The renv package helps you create reproducible environments for your R
 # projects. This is helpful when working in teams because it makes your R
 # projects more isolated, portable and reproducible.
 
+# Further reading:
+#   Summary: https://rstudio.github.io/renv/
+#   More detailed article: https://rstudio.github.io/renv/articles/renv.html
+
 # Install renv:
-install.packages("renv")
+if (!is.element("renv", installed.packages()[, 1])) {
+  install.packages("renv", dependencies = TRUE)
+}
+require("renv")
 
 # Use renv::init() to initialize renv in a new or existing project.
+
+# The prompt received after executing renv::init() is as shown below:
+# This project already has a lockfile. What would you like to do?
+
+# 1: Restore the project from the lockfile.
+# 2: Discard the lockfile and re-initialize the project.
+# 3: Activate the project without snapshotting or installing any packages.
+# 4: Abort project initialization.
+
+# Select option 1 to restore the project from the lockfile
 renv::init()
+
 # This will set up a project library, containing all the packages you are
 # currently using. The packages (and all the metadata needed to reinstall
 # them) are recorded into a lockfile, renv.lock, and a .Rprofile ensures that
 # the library is used every time you open that project.
 
 # This can also be configured using the RStudio GUI when you click the project
-# file, e.g., "BBT4206-R.Rproj" in the case of this project. Then 
+# file, e.g., "BBT4206-R.Rproj" in the case of this project. Then
 # navigate to the "Environments" tab and select "Use renv with this project".
 
-# As you continue to work on your project, you will install and upgrade
+# As you continue to work on your project, you can install and upgrade
 # packages, using either:
 # install.packages() and update.packages or
 # renv::install() and renv::update()
@@ -71,16 +83,17 @@ renv::restore()
 ## STEP 3. Load the downloaded sample datasets ----
 # Load the datasets
 iris_dataset <- read.csv("data/iris.data", header = FALSE,
-                        stringsAsFactors = TRUE)
+                         stringsAsFactors = TRUE)
 
 # The following code (optional) can be used to name the attributes in the
 # iris_dataset:
 
 # names(iris_dataset) <- c("sepal length in cm", "sepal width in cm",
-#                         "petal length in cm", "petal width in cm", "class")
+#                          "petal length in cm", "petal width in cm", "class")
 
-if (!is.element("readr", installed.packages()[,1])) { 
-  install.packages("readr", dependencies = TRUE) }
+if (!is.element("readr", installed.packages()[, 1])) {
+  install.packages("readr", dependencies = TRUE)
+}
 require("readr")
 
 crop_dataset <- read_csv(
@@ -95,15 +108,16 @@ crop_dataset <- read_csv(
 View(crop_dataset)
 
 ## STEP 4. Load sample datasets that are provided as part of a package ----
-if (!is.element("mlbench", installed.packages()[,1])) { 
-  install.packages("mlbench", dependencies = TRUE) }
+if (!is.element("mlbench", installed.packages()[, 1])) {
+  install.packages("mlbench", dependencies = TRUE)
+}
 require("mlbench")
 
 data("PimaIndiansDiabetes")
 data("BostonHousing")
 
 # Dimensions ----
-## STEP 5. Preview the Loaded Datasets ====
+## STEP 5. Preview the Loaded Datasets ----
 # Dimensions refer to the number of observations (rows) and the number of
 # attributes/variables/features (columns). Execute the following commands to
 # display the dimensions of your datasets:
@@ -166,9 +180,9 @@ sapply(PimaIndiansDiabetes, class)
 ## Measures of Frequency ----
 
 ### STEP 7. Identify the number of instances that belong to each class. ----
-# It is more sensible to count categorical variables (factors) than numeric
-# variables, e.g., counting the number of male and female participants instead
-# of counting the frequency of each participant’s height.
+# It is more sensible to count categorical variables (factors or dimensions)
+# than numeric variables, e.g., counting the number of male and female
+# participants instead of counting the frequency of each participant’s height.
 boston_housing_freq <- BostonHousing$chas
 cbind(frequency = table(boston_housing_freq),
       percentage = prop.table(table(boston_housing_freq)) * 100)
@@ -199,20 +213,24 @@ cbind(frequency = table(pima_indians_diabetes_freq),
 # We, therefore, must manually create a function that can calculate the mode.
 
 boston_housing_chas_mode <- names(table(BostonHousing$chas))[
-  which(table(BostonHousing$chas) == max(table(BostonHousing$chas)))]
+  which(table(BostonHousing$chas) == max(table(BostonHousing$chas)))
+]
 print(boston_housing_chas_mode)
 
 crop_dataset_fertilizer_mode <- names(table(crop_dataset$fertilizer))[
-  which(table(crop_dataset$fertilizer) == max(table(crop_dataset$fertilizer)))]
+  which(table(crop_dataset$fertilizer) == max(table(crop_dataset$fertilizer)))
+]
 print(crop_dataset_fertilizer_mode)
 
 iris_dataset_mode <- names(table(iris_dataset$V5))[
-  which(table(iris_dataset$V5) == max(table(iris_dataset$V5)))]
+  which(table(iris_dataset$V5) == max(table(iris_dataset$V5)))
+]
 print(iris_dataset_mode)
 
 pima_indians_diabetes_mode <- names(table(PimaIndiansDiabetes$diabetes))[
   which(table(PimaIndiansDiabetes$diabetes) ==
-  max(table(PimaIndiansDiabetes$diabetes)))]
+          max(table(PimaIndiansDiabetes$diabetes)))
+]
 print(pima_indians_diabetes_mode)
 
 ## Measures of Distribution/Dispersion/Spread/Scatter/Variability ----
@@ -223,7 +241,7 @@ summary(crop_dataset)
 summary(iris_dataset)
 summary(PimaIndiansDiabetes)
 
-### STEP 10. Measure the standard deviation of each variable ====
+### STEP 10. Measure the standard deviation of each variable ----
 # Measuring the variability in the dataset is important because the amount of
 # variability determines how well you can generalize results from the sample
 # dataset to a new observation in the population.
@@ -233,11 +251,11 @@ summary(PimaIndiansDiabetes)
 # that the values are less consistent, thus making it harder to make
 # predictions.
 
-# The format “dataset[rows,columns]” can be used to specify the exact rows and
-# columns to be considered. “dataset[,columns]” implies all rows will be
+# The format “dataset[rows, columns]” can be used to specify the exact rows and
+# columns to be considered. “dataset[, columns]” implies all rows will be
 # considered. Specifying “BostonHousing[, -4]” implies all the columns except
 # column number 4. This can also be stated as
-# “BostonHousing[,c(1,2,3,5,6,7,8,9,10,11,12,13,14)]”. This allows us to
+# “BostonHousing[, c(1,2,3,5,6,7,8,9,10,11,12,13,14)]”. This allows us to
 # calculate the standard deviation of only columns that are numeric, thus
 # leaving out the columns termed as “factors” (categorical) or those that have
 # a string data type.
@@ -270,8 +288,9 @@ sapply(PimaIndiansDiabetes[, 1:8], var)
 # 2.	Kurtosis = 3 implies a medium number of outliers
 # 3.	Kurtosis > 3 implies a high number of outliers
 
-if (!is.element("e1071", installed.packages()[,1])) { 
-  install.packages("e1071", dependencies = TRUE) }
+if (!is.element("e1071", installed.packages()[, 1])) {
+  install.packages("e1071", dependencies = TRUE)
+}
 require("e1071")
 
 sapply(BostonHousing[, -4],  kurtosis, type = 2)
@@ -378,7 +397,7 @@ View(pima_indians_diabetes_cor)
 # (v)	  Ordinal regression: predictor can be more than 1 variable; outcome is 1
 #       ordinal variable.
 
-## STEP 16. Perform ANOVA on the “crop_dataset” dataset ====
+## STEP 16. Perform ANOVA on the “crop_dataset” dataset ----
 # ANOVA (Analysis of Variance) is a statistical test used to estimate how a
 # quantitative dependent variable changes according to the levels of one or
 # more categorical independent variables.
@@ -451,7 +470,7 @@ summary(crop_dataset_one_way_anova)
 # (two independent variables):
 
 crop_dataset_additive_two_way_anova <- aov(yield ~ fertilizer + density, # nolint
-                                          data = crop_dataset)
+                                           data = crop_dataset)
 summary(crop_dataset_additive_two_way_anova)
 
 # Specifying an asterisk (*) instead of a plus (+) between the two independent
@@ -490,9 +509,9 @@ summary(crop_dataset_interactive_two_way_anova)
 
 # Execute the following to add the “block” variable:
 crop_dataset_interactive_two_way_anova_with_block <- aov(yield ~ # nolint
-                                                        fertilizer + density
-                                                        + block,
-                                                        data = crop_dataset)
+                                                           fertilizer + density
+                                                           + block,
+                                                         data = crop_dataset)
 summary(crop_dataset_interactive_two_way_anova_with_block)
 
 # This can be interpreted as follows:
@@ -633,7 +652,7 @@ for (i in 1:8) {
   boxplot(PimaIndiansDiabetes[, i], main = names(PimaIndiansDiabetes)[i])
 }
 
-### STEP 19. Create Bar Plots for Each Categorical Attribute ====
+### STEP 19. Create Bar Plots for Each Categorical Attribute ----
 # Categorical attributes (factors) can also be visualized. This is done using a
 # bar chart to give an idea of the proportion of instances that belong to each
 # category.
@@ -681,7 +700,7 @@ barplot(table(iris_dataset[, 5]), main = names(iris_dataset)[5])
 
 barplot(table(PimaIndiansDiabetes[, 9]), main = names(PimaIndiansDiabetes)[9])
 
-### STEP 20. Create a Missingness Map to Identify Missing Data ====
+### STEP 20. Create a Missingness Map to Identify Missing Data ----
 # Some machine learning algorithms cannot handle missing data. A missingness
 # map (also known as a missing plot) can be used to get an idea of the amount
 # missing data in the dataset. The x-axis of the missingness map shows the
@@ -693,8 +712,9 @@ barplot(table(PimaIndiansDiabetes[, 9]), main = names(PimaIndiansDiabetes)[9])
 
 # Execute the following to create a map to identify the missing data in each
 # dataset:
-if (!is.element("Amelia", installed.packages()[,1])) { 
-  install.packages("Amelia", dependencies = TRUE) }
+if (!is.element("Amelia", installed.packages()[, 1])) {
+  install.packages("Amelia", dependencies = TRUE)
+}
 require("Amelia")
 
 missmap(BostonHousing, col = c("red", "grey"), legend = TRUE)
@@ -706,14 +726,13 @@ missmap(PimaIndiansDiabetes, col = c("red", "grey"), legend = TRUE)
 # missing data. We can load a 5th dataset called “Soybean” found in the
 # “mlbench” package for an example of a dataset that has missing data. Execute
 # the following for an example of a dataset that has missing data:
-library(mlbench)
 data(Soybean)
 View(Soybean)
 missmap(Soybean, col = c("red", "grey"), legend = TRUE)
 
-## Multivariate Plots ====
+## Multivariate Plots ----
 
-### STEP 21. Create a Correlation Plot ====
+### STEP 21. Create a Correlation Plot ----
 # Correlation plots can be used to get an idea of which attributes change
 # together. The function “corrplot()” found in the package “corrplot” is
 # required to perform this. The larger the dot in the correlation plot, the
@@ -722,7 +741,10 @@ missmap(Soybean, col = c("red", "grey"), legend = TRUE)
 
 # Execute the following to create correlation plots for 3 of the datasets
 # loaded in STEP 2 to STEP 4:
-library(corrplot)
+if (!is.element("corrplot", installed.packages()[, 1])) {
+  install.packages("corrplot", dependencies = TRUE)
+}
+require("corrplot")
 corrplot(cor(BostonHousing[, -4]), method = "circle")
 corrplot(cor(iris_dataset[, 1:4]), method = "circle")
 corrplot(cor(PimaIndiansDiabetes[, 1:8]), method = "circle")
@@ -733,14 +755,15 @@ corrplot(cor(PimaIndiansDiabetes[, 1:8]), method = "circle")
 # Alternatively, the 'ggcorrplot::ggcorrplot()' function can be used to plot a
 # more visually appealing plot.
 # The code below shows how to install a package in R:
-install.packages("ggcorrplot")
-
-library(ggcorrplot)
+if (!is.element("ggcorrplot", installed.packages()[, 1])) {
+  install.packages("ggcorrplot", dependencies = TRUE)
+}
+require("ggcorrplot")
 ggcorrplot(cor(BostonHousing[, -4]))
 ggcorrplot(cor(iris_dataset[, 1:4]))
 ggcorrplot(cor(PimaIndiansDiabetes[, 1:8]))
 
-### STEP 22. Create a Scatter Plot ====
+### STEP 22. Create a Scatter Plot ----
 pairs(BostonHousing)
 pairs(block ~ ., data = crop_dataset, col = crop_dataset$block)
 pairs(density ~ ., data = crop_dataset, col = crop_dataset$density)
@@ -751,21 +774,23 @@ pairs(diabetes ~ ., data = PimaIndiansDiabetes,
 
 # Alternatively, the ggcorrplot package can be used to make the plots more
 # appealing:
-library(ggcorrplot)
 ggplot(PimaIndiansDiabetes,
-      aes(x = age, y = pregnant, shape = diabetes, color = diabetes)) +
-      geom_point() +
-      geom_smooth(method = lm)
+       aes(x = age, y = pregnant, shape = diabetes, color = diabetes)) +
+  geom_point() +
+  geom_smooth(method = lm)
 
-### STEP 23. Create Multivariate Box and Whisker Plots by Class ====
+### STEP 23. Create Multivariate Box and Whisker Plots by Class ----
 # This applies to datasets where the target (dependent) variable is categorical.
 # Execute the following code:
-library(caret)
+if (!is.element("caret", installed.packages()[, 1])) {
+  install.packages("caret", dependencies = TRUE)
+}
+require("caret")
 featurePlot(x = iris_dataset[, 1:4], y = iris_dataset[, 5], plot = "box")
 featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
             plot = "box")
 
-### STEP 24. Create Multivariate Box and Whisker Plots by Class ====
+### STEP 24. Create a snapshot of the R environment ----
 # Lastly, as a follow-up to STEP 1., record the packages installed and their
 # sources in the lockfile so that other team-members can use renv::restore()
 # to re-install the same package version in their local machine.
