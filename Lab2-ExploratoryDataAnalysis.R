@@ -802,7 +802,7 @@ featurePlot(x = iris_dataset[, 1:4], y = iris_dataset[, 5], plot = "box")
 featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
             plot = "box")
 
-### *** Deinitialization: Create a snapshot of the R environment ----
+# *** Deinitialization: Create a snapshot of the R environment ----
 # Lastly, as a follow-up to the initialization step, record the packages
 # installed and their sources in the lockfile so that other team-members can
 # use renv::restore() to re-install the same package version in their local
@@ -815,6 +815,11 @@ renv::snapshot()
 ## Bevans, R. (2023b). Sample Crop Data Dataset for ANOVA (Version 1) [Dataset]. Scribbr. https://www.scribbr.com/wp-content/uploads//2020/03/crop.data_.anova_.zip # nolint ----
 
 ## Fisher, R. A. (1988). Iris [Dataset]. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/53/iris # nolint ----
+
+## National Institute of Diabetes and Digestive and Kidney Diseases. (1999). Pima Indians Diabetes Dataset [Dataset]. UCI Machine Learning Repository. https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database # nolint ----
+
+## StatLib CMU. (1997). Boston Housing [Dataset]. StatLib Carnegie Mellon University. http://lib.stat.cmu.edu/datasets/boston_corrected.txt # nolint ----
+
 
 # **Required Lab Work Submission** ----
 
@@ -832,7 +837,7 @@ renv::snapshot()
 # provided on eLearning.
 
 ## Part C ----
-# Create a markdown file called "Lab2-Submission-ExploratoryDataAnalysis.Rmd"
+# Create a markdown file called "Lab-Submission-Markdown.Rmd"
 # and place it inside the folder called "markdown". Use R Studio to ensure the
 # .Rmd file is based on the "GitHub Document (Markdown)" template when it is
 # being created.
@@ -841,10 +846,10 @@ renv::snapshot()
 # the "GitHub Document (Markdown)" template:
 #     https://github.com/course-files/BBT4206-R-Lab1of15-LoadingDatasets/blob/main/markdown/BIProject-Template.Rmd # nolint
 
-# Include Line 1 to 14 of BIProject-Template.Rmd in your .Rmd file to make
-# displayable on GitHub when converted to its .md version
+# Include Line 1 to 14 of BIProject-Template.Rmd in your .Rmd file to make it
+# displayable on GitHub when rendered into its .md version
 
-# It should have code chunks that explains only *the most significant*
+# It should have code chunks that explain only *the most significant*
 # analysis performed on the dataset.
 
 # The emphasis should be on Explanatory Data Analysis (explains the key
@@ -854,10 +859,10 @@ renv::snapshot()
 # re-creates the problem of information overload.
 
 ## Part D ----
-# Create a .md (markdown) version of the .Rmd (R markdown) file by using knitR
-# in RStudio.
+# Render the .Rmd (R markdown) file into its .md (markdown) version by using
+# knitR in RStudio.
 # Documentation of knitR: https://www.rdocumentation.org/packages/knitr/
 
-# Upload *the link* to "Lab2-Submission-ExploratoryDataAnalysis.md" (not .Rmd)
+# Upload *the link* to "Lab-Submission-Markdown.md" (not .Rmd)
 # markdown file hosted on Github (do not upload the .Rmd or .md markdown files)
 # through the submission link provided on eLearning.
