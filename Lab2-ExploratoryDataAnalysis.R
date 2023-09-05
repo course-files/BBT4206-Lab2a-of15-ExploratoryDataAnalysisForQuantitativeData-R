@@ -17,6 +17,7 @@
 # *****************************************************************************
 
 # STEP 1. Install and use renv ----
+# *** Initialization: Install and use renv ----
 # The renv package helps you create reproducible environments for your R
 # projects. This is helpful when working in teams because it makes your R
 # projects more isolated, portable and reproducible.
@@ -58,6 +59,9 @@ renv::init()
 # install.packages() and update.packages or
 # renv::install() and renv::update()
 
+# You can also clean up a project by removing unused packages using the
+# following command: renv::clean()
+
 # After you have confirmed that your code works as expected, use
 # renv::snapshot() to record the packages and their
 # sources in the lockfile.
@@ -69,6 +73,14 @@ renv::init()
 # Execute the following code to reinstall the specific package versions
 # recorded in the lockfile:
 renv::restore()
+
+# One of the packages required to use R in VS Code is the "languageserver"
+# package. It can be installed manually as follows if you are not using the
+# renv::restore() command.
+if (!is.element("languageserver", installed.packages()[, 1])) {
+  install.packages("languageserver", dependencies = TRUE)
+}
+require("languageserver")
 
 # Loading Datasets ----
 ## STEP 2: Download sample datasets ----
@@ -790,10 +802,11 @@ featurePlot(x = iris_dataset[, 1:4], y = iris_dataset[, 5], plot = "box")
 featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
             plot = "box")
 
-### STEP 24. Create a snapshot of the R environment ----
-# Lastly, as a follow-up to STEP 1., record the packages installed and their
-# sources in the lockfile so that other team-members can use renv::restore()
-# to re-install the same package version in their local machine.
+### *** Deinitialization: Create a snapshot of the R environment ----
+# Lastly, as a follow-up to the initialization step, record the packages
+# installed and their sources in the lockfile so that other team-members can
+# use renv::restore() to re-install the same package version in their local
+# machine during their initialization step.
 renv::snapshot()
 
 # References ----
@@ -814,7 +827,8 @@ renv::snapshot()
 
 ## Part C ----
 # Create a markdown file called "BIProject.Rmd" and place it inside the folder
-# called "markdown". The markdown should have a code chunk that explains the
+# called "markdown". The markdown file should be a continuation of the content
+# you have in Lab 1. It should also have a code chunk that explains the
 # most significant analysis performed on the BI Project dataset.
 # The emphasis should be on Explanatory Data Analysis (highlights the key
 # points or statistics performed) as opposed to
@@ -826,7 +840,3 @@ renv::snapshot()
 # Upload *the link* to "BIProject.md" (not .Rmd) markdown file hosted on Github
 # (do not upload the .Rmd or .md markdown files) through the submission link
 # provided on eLearning.
-
-## Part E ----
-# Perform Exploratory Data Analysis using the student performance dataset that
-# was created in class.
