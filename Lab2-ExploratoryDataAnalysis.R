@@ -810,15 +810,21 @@ featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
 renv::snapshot()
 
 # References ----
-## Bevans, R. (2023). ANOVA in R | A Complete Step-by-Step Guide with Examples. Scribbr. Retrieved August 24, 2023, from https://www.scribbr.com/statistics/anova-in-r/ # nolint ---- # nolint
+## Bevans, R. (2023a). ANOVA in R | A Complete Step-by-Step Guide with Examples. Scribbr. Retrieved August 24, 2023, from https://www.scribbr.com/statistics/anova-in-r/ # nolint ----
 
-## Bevans, R. (2023). Sample Crop Data Dataset for ANOVA (Version 1) [Dataset]. Scribbr. https://www.scribbr.com/wp-content/uploads//2020/03/crop.data_.anova_.zip # nolint ----
+## Bevans, R. (2023b). Sample Crop Data Dataset for ANOVA (Version 1) [Dataset]. Scribbr. https://www.scribbr.com/wp-content/uploads//2020/03/crop.data_.anova_.zip # nolint ----
+
+## Fisher, R. A. (1988). Iris [Dataset]. UCI Machine Learning Repository. https://archive.ics.uci.edu/dataset/53/iris # nolint ----
 
 # **Required Lab Work Submission** ----
+
+# NOTE: The lab work should be done in groups of between 2 and 5 members using
+#       Git and GitHub.
+
 ## Part A ----
-# Create a file called "Lab2-Submission-ExploratoryDataAnalysis.R". Provide all
-# the code you have used to perform an exploratory data analysis of your own
-# BI project dataset.
+# Create a new file called "Lab2-Submission-ExploratoryDataAnalysis.R".
+# Provide all the code you have used to perform an exploratory data analysis of
+# the "Class Performance Dataset" provided on the eLearning platform.
 
 ## Part B ----
 # Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted
@@ -826,17 +832,32 @@ renv::snapshot()
 # provided on eLearning.
 
 ## Part C ----
-# Create a markdown file called "BIProject.Rmd" and place it inside the folder
-# called "markdown". The markdown file should be a continuation of the content
-# you have in Lab 1. It should also have a code chunk that explains the
-# most significant analysis performed on the BI Project dataset.
-# The emphasis should be on Explanatory Data Analysis (highlights the key
-# points or statistics performed) as opposed to
-# Exploratory Data Analysis (presents all the statistics performed on the
-# dataset). Exploratory Data Analysis re-creates the problem of information
-# overload.
+# Create a markdown file called "Lab2-Submission-ExploratoryDataAnalysis.Rmd"
+# and place it inside the folder called "markdown". Use R Studio to ensure the
+# .Rmd file is based on the "GitHub Document (Markdown)" template when it is
+# being created.
+
+# Refer to the following file in Lab 1 for an example of a .Rmd file based on
+# the "GitHub Document (Markdown)" template:
+#     https://github.com/course-files/BBT4206-R-Lab1of15-LoadingDatasets/blob/main/markdown/BIProject-Template.Rmd # nolint
+
+# Include Line 1 to 14 of BIProject-Template.Rmd in your .Rmd file to make
+# displayable on GitHub when converted to its .md version
+
+# It should have code chunks that explains only *the most significant*
+# analysis performed on the dataset.
+
+# The emphasis should be on Explanatory Data Analysis (explains the key
+# statistics performed on the dataset) as opposed to
+# Exploratory Data Analysis (presents ALL the statistics performed on the
+# dataset). Exploratory Data Analysis that presents ALL the possible statistics
+# re-creates the problem of information overload.
 
 ## Part D ----
-# Upload *the link* to "BIProject.md" (not .Rmd) markdown file hosted on Github
-# (do not upload the .Rmd or .md markdown files) through the submission link
-# provided on eLearning.
+# Create a .md (markdown) version of the .Rmd (R markdown) file by using knitR
+# in RStudio.
+# Documentation of knitR: https://www.rdocumentation.org/packages/knitr/
+
+# Upload *the link* to "Lab2-Submission-ExploratoryDataAnalysis.md" (not .Rmd)
+# markdown file hosted on Github (do not upload the .Rmd or .md markdown files)
+# through the submission link provided on eLearning.
