@@ -17,7 +17,7 @@
 # *****************************************************************************
 
 # STEP 1. Install and use renv ----
-# *** Initialization: Install and use renv ----
+# **Initialization: Install and use renv ----
 # The renv package helps you create reproducible environments for your R
 # projects. This is helpful when working in teams because it makes your R
 # projects more isolated, portable and reproducible.
@@ -802,7 +802,7 @@ featurePlot(x = iris_dataset[, 1:4], y = iris_dataset[, 5], plot = "box")
 featurePlot(x = PimaIndiansDiabetes[, 1:8], y = PimaIndiansDiabetes[, 9],
             plot = "box")
 
-# *** Deinitialization: Create a snapshot of the R environment ----
+# **Deinitialization: Create a snapshot of the R environment ----
 # Lastly, as a follow-up to the initialization step, record the packages
 # installed and their sources in the lockfile so that other team-members can
 # use renv::restore() to re-install the same package version in their local
