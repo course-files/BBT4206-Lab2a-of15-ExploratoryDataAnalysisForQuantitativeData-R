@@ -83,8 +83,21 @@ lapply(.libPaths(), list.files)
 # reinstall the specific package versions recorded in the lockfile.
 
 # Execute the following code to reinstall the specific package versions
-# recorded in the lockfile:
+# recorded in the lockfile (restart R after executing the command):
 renv::restore()
+
+# If you get several errors setting up renv and you prefer not to use it, then
+# you can deactivate it using the following command (restart R after executing
+# the command):
+renv::deactivate()
+
+# If renv::restore() did not install the "languageserver" package (required to
+# use R for VS Code), then it can be installed manually as follows (restart R
+# after executing the command):
+if (!is.element("languageserver", installed.packages()[, 1])) {
+  install.packages("languageserver", dependencies = TRUE)
+}
+require("languageserver")
 
 # Loading Datasets ----
 ## STEP 2: Download sample datasets ----
