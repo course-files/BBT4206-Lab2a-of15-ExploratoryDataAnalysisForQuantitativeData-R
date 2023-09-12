@@ -18,21 +18,22 @@
 
 # STEP 1. Install and use renv ----
 # **Initialization: Install and use renv ----
-# The renv package helps you create reproducible environments for your R
-# projects. This is helpful when working in teams because it makes your R
-# projects more isolated, portable and reproducible.
+# The R Environment ("renv") package helps you create reproducible environments
+# for your R projects. This is helpful when working in teams because it makes
+# your R projects more isolated, portable and reproducible.
 
 # Further reading:
 #   Summary: https://rstudio.github.io/renv/
 #   More detailed article: https://rstudio.github.io/renv/articles/renv.html
 
-# Install renv:
-if (!is.element("renv", installed.packages()[, 1])) {
-  install.packages("renv", dependencies = TRUE)
-}
-require("renv")
+# "renv" It can be installed as follows:
+# if (!is.element("renv", installed.packages()[, 1])) {
+#   install.packages("renv", dependencies = TRUE) # nolint
+# }
+# require("renv") # nolint
 
-# Use renv::init() to initialize renv in a new or existing project.
+# Once installed, you can then use renv::init() to initialize renv in a new
+# project.
 
 # The prompt received after executing renv::init() is as shown below:
 # This project already has a lockfile. What would you like to do?
@@ -43,12 +44,23 @@ require("renv")
 # 4: Abort project initialization.
 
 # Select option 1 to restore the project from the lockfile
-renv::init()
+# renv::init() # nolint
 
 # This will set up a project library, containing all the packages you are
 # currently using. The packages (and all the metadata needed to reinstall
 # them) are recorded into a lockfile, renv.lock, and a .Rprofile ensures that
 # the library is used every time you open that project.
+
+# Consider a library as the location where packages are stored.
+# Execute the following command to list all the libraries available in your
+# computer:
+.libPaths()
+
+# One of the libraries should be a folder inside the project.
+
+# Then execute the following command to see which packages are available in
+# each library:
+lapply(.libPaths(), list.files)
 
 # This can also be configured using the RStudio GUI when you click the project
 # file, e.g., "BBT4206-R.Rproj" in the case of this project. Then
@@ -73,14 +85,6 @@ renv::init()
 # Execute the following code to reinstall the specific package versions
 # recorded in the lockfile:
 renv::restore()
-
-# One of the packages required to use R in VS Code is the "languageserver"
-# package. It can be installed manually as follows if you are not using the
-# renv::restore() command.
-if (!is.element("languageserver", installed.packages()[, 1])) {
-  install.packages("languageserver", dependencies = TRUE)
-}
-require("languageserver")
 
 # Loading Datasets ----
 ## STEP 2: Download sample datasets ----
@@ -827,9 +831,11 @@ renv::snapshot()
 #       Git and GitHub.
 
 ## Part A ----
-# Create a new file called "Lab2-Submission-ExploratoryDataAnalysis.R".
-# Provide all the code you have used to perform an exploratory data analysis of
-# the "Class Performance Dataset" provided on the eLearning platform.
+# Create a new file in the project's root folder called
+# "Lab2-Submission-ExploratoryDataAnalysis.R".
+# Use this file to provide all the code you have used to perform an exploratory
+# data analysis of the "Class Performance Dataset" provided on the eLearning
+# platform.
 
 ## Part B ----
 # Upload *the link* to your "Lab2-Submission-ExploratoryDataAnalysis.R" hosted
@@ -861,6 +867,19 @@ renv::snapshot()
 ## Part D ----
 # Render the .Rmd (R markdown) file into its .md (markdown) version by using
 # knitR in RStudio.
+
+# You need to download and install "pandoc" to render the R markdown.
+# Pandoc is a file converter that can be used to convert the following files:
+#   https://pandoc.org/diagram.svgz?v=20230831075849
+
+# Documentation:
+#   https://pandoc.org/installing.html and
+#   https://github.com/REditorSupport/vscode-R/wiki/R-Markdown
+
+# By default, Rmd files are open as Markdown documents. To enable R Markdown
+# features, you need to associate *.Rmd files with rmd language.
+# Add an entry Item "*.Rmd" and Value "rmd" in the VS Code settings editor.
+
 # Documentation of knitR: https://www.rdocumentation.org/packages/knitr/
 
 # Upload *the link* to "Lab-Submission-Markdown.md" (not .Rmd)
