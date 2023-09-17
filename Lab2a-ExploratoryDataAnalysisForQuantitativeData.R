@@ -1,5 +1,5 @@
 # *****************************************************************************
-# Lab 2: Exploratory Data Analysis ----
+# Lab 2.a.: Exploratory Data Analysis for Quantitative Data ----
 #
 # Course Code: BBT4206
 # Course Name: Business Intelligence II
