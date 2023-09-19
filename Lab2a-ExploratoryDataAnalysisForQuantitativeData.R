@@ -558,6 +558,9 @@ summary(crop_dataset_interactive_two_way_anova_with_block)
 # critical discourse analysis:
 #   https://www.scribbr.com/methodology/discourse-analysis/
 
+# Refer to Lab 2.b. for a tutorial on qualitative data analysis
+
+
 # Basic Visualization for Understanding the Dataset ----
 
 # Note: If you are using R Studio, ensure that the "Plots" window on the bottom
