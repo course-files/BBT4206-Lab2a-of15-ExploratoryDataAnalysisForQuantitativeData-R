@@ -335,7 +335,7 @@ sapply(PimaIndiansDiabetes[, 1:8],  kurtosis, type = 2)
 
 # 1.	Skewness between -0.4 and 0.4 (inclusive) implies that there is no skew
 # in the distribution of results; the distribution of results is symmetrical;
-# it is a normal distribution.
+# it is a normal distribution; a Gaussian distribution.
 # 2.	Skewness above 0.4 implies a positive skew; a right-skewed distribution.
 # 3.	Skewness below -0.4 implies a negative skew; a left-skewed distribution.
 
