@@ -121,7 +121,7 @@ defaults in this markdown:
 # Loading the Student Performance Dataset
 
 The 20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset is then
-loaded. The dataset and its metadata is available here:
+loaded. The dataset and its metadata are available here:
 <https://drive.google.com/drive/folders/1-BGEhfOwquXF6KKXwcvrx7WuZXuqmW9q?usp=sharing>
 
 ``` r
