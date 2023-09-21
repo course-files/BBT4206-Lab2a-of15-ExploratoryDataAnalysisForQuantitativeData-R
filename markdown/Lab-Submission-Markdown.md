@@ -7,33 +7,39 @@ Business Intelligence Lab Submission Markdown
 - [Setup Chunk](#setup-chunk)
 - [Loading the Student Performance
   Dataset](#loading-the-student-performance-dataset)
-  - [\<You Can Have a Sub-Title Here\>](#you-can-have-a-sub-title-here)
-- [\<You can Provide Another Appropriate Title
-  Here\>](#you-can-provide-another-appropriate-title-here)
+  - [Description of the Dataset](#description-of-the-dataset)
+- [\<You can Provide Another Appropriate Title Here if you
+  wish\>](#you-can-provide-another-appropriate-title-here-if-you-wish)
+  - [\<You Can Have a Sub-Title Here if you
+    wish\>](#you-can-have-a-sub-title-here-if-you-wish)
+  - [\<You Can Have a Sub-Title Here if you
+    wish\>](#you-can-have-a-sub-title-here-if-you-wish-1)
 
 # Student Details
 
 <table>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 66%" />
+<col style="width: 23%" />
+<col style="width: 76%" />
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Student ID Numbers and Names of Group Members</strong></td>
-<td><p><em>&lt;list one student name, group, and ID per line; you should
-be between 2 and 5 members per group&gt;</em></p>
+<td><p><em>&lt;list one student name, class group (just the letter; A,
+B, or C), and ID per line, e.g., 123456 - A - John Leposo; you should be
+between 2 and 5 members per group&gt;</em></p>
 <ol type="1">
-<li><p>ID - Group - Name</p></li>
-<li><p>ID - Group - Name</p></li>
-<li><p>ID - Group - Name</p></li>
-<li><p>ID - Group - Name</p></li>
-<li><p>ID - Group - Name</p></li>
+<li><p>ID - Class Group - Name</p></li>
+<li><p>ID - Class Group - Name</p></li>
+<li><p>ID - Class Group - Name</p></li>
+<li><p>ID - Class Group - Name</p></li>
+<li><p>ID - Class Group - Name</p></li>
 </ol></td>
 </tr>
 <tr class="even">
 <td><strong>GitHub Classroom Group Name</strong></td>
-<td>Test</td>
+<td><em>&lt;specify the name of the team you created on GitHub
+classroom&gt;</em></td>
 </tr>
 <tr class="odd">
 <td><strong>Course Code</strong></td>
@@ -56,16 +62,49 @@ be between 2 and 5 members per group&gt;</em></p>
 
 # Setup Chunk
 
-**Note:** the following “*KnitR*” options have been set as the
-defaults:  
+We start by installing all the required packages
+
+``` r
+## formatR - Required to format R code in the markdown ----
+if (!is.element("formatR", installed.packages()[, 1])) {
+  install.packages("formatR", dependencies = TRUE,
+                   repos="https://cloud.r-project.org")
+}
+require("formatR")
+
+
+## readr - Load datasets from CSV files ----
+if (!is.element("readr", installed.packages()[, 1])) {
+  install.packages("readr", dependencies = TRUE,
+                   repos="https://cloud.r-project.org")
+}
+require("readr")
+```
+
+------------------------------------------------------------------------
+
+**Note:** the following “*KnitR*” options have been set as the defaults
+in this markdown:  
 `knitr::opts_chunk$set(echo = TRUE, warning = FALSE, eval = TRUE, collapse = FALSE, tidy.opts = list(width.cutoff = 80), tidy = TRUE)`.
 
 More KnitR options are documented here
 <https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html> and
 here <https://yihui.org/knitr/options/>.
 
+``` r
+knitr::opts_chunk$set(
+    eval = TRUE,
+    echo = TRUE,
+    warning = FALSE,
+    collapse = FALSE,
+    tidy = TRUE
+)
+```
+
+------------------------------------------------------------------------
+
 **Note:** the following “*R Markdown*” options have been set as the
-defaults:
+defaults in this markdown:
 
 > output:  
 >   
@@ -81,19 +120,8 @@ defaults:
 
 # Loading the Student Performance Dataset
 
-Testing for Group A (loading the student performance dataset).
-
-``` r
-install.packages("readr", repos = "https://cloud.r-project.org")
-```
-
-    ## Installing package into 'C:/Users/aomondi/Documents/GitHub/BBT4206-R-Lab2a-of15-ExploratoryDataAnalysisForQuantitativeData/renv/library/R-4.3/x86_64-w64-mingw32'
-    ## (as 'lib' is unspecified)
-
-    ## package 'readr' successfully unpacked and MD5 sums checked
-    ## 
-    ## The downloaded binary packages are in
-    ##  C:\Users\aomondi\AppData\Local\Temp\Rtmpcb3i4r\downloaded_packages
+The 20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset is then
+loaded.
 
 ``` r
 student_performance_dataset <- readr::read_csv("../data/20230412-20230719-BI1-BBIT4-1-StudentPerformanceDataset.CSV",
@@ -141,7 +169,22 @@ student_performance_dataset <- readr::read_csv("../data/20230412-20230719-BI1-BB
     locale = readr::locale())
 ```
 
-Describe the next code chunk here:
+## Description of the Dataset
+
+We then display the number of observations and number of variables. We
+have 101 observations and 100 variables to work with.
+
+``` r
+dim(student_performance_dataset)
+```
+
+    ## [1] 101 100
+
+Next, we display the quartiles for each numeric
+variable<span id="highlight" style="color: blue">*… think of this
+process as **“storytelling using the data.”** Tell us what is happening;
+tell us what you are discovering as you proceed with the markdown; walk
+us through your code step-by-step (a code walkthrough).*</span>
 
 ``` r
 summary(student_performance_dataset)
@@ -564,22 +607,25 @@ summary(student_performance_dataset)
     ##  Max.   :87.72                                
     ## 
 
-## \<You Can Have a Sub-Title Here\>
-
-``` r
-# Fill this with other R related code that will be executed when the R markdown
-# file is rendered using knitR
-library(readr)
-```
-
-# \<You can Provide Another Appropriate Title Here\>
+# \<You can Provide Another Appropriate Title Here if you wish\>
 
 Describe the code chunk here:
 
 ``` r
 # Fill this with R related code that will be executed when the R markdown file
-# is rendered using knitR
-library(readr)
 ```
 
-**etc.** as per the lab submission requirements.
+## \<You Can Have a Sub-Title Here if you wish\>
+
+``` r
+# Fill this with other R related code that will be executed when the R markdown
+```
+
+## \<You Can Have a Sub-Title Here if you wish\>
+
+``` r
+# Fill this with other R related code that will be executed when the R markdown
+```
+
+**etc.** as per the lab submission requirements. Be neat and communicate
+in a clear and logical manner.
