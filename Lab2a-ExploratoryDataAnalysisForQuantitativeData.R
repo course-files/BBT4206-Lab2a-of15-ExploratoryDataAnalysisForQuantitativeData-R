@@ -900,5 +900,5 @@ renv::snapshot()
 # Documentation of knitR: https://www.rdocumentation.org/packages/knitr/
 
 # Upload *the link* to "Lab-Submission-Markdown.md" (not .Rmd)
-# markdown file hosted on Github (do not upload the .Rmd or .md markdown files)
-# through the submission link provided on eLearning.
+# markdown file hosted on Github's main branch (do not upload the .Rmd or .md
+# markdown files) through the submission link provided on eLearning.
