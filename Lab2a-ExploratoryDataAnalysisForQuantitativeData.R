@@ -887,7 +887,7 @@ renv::snapshot()
 # You need to download and install "pandoc" to render the R markdown.
 # Pandoc is a file converter that can be used to convert the following files:
 #   https://pandoc.org/diagram.svgz?v=20230831075849
-
+ 
 # Documentation:
 #   https://pandoc.org/installing.html and
 #   https://github.com/REditorSupport/vscode-R/wiki/R-Markdown
