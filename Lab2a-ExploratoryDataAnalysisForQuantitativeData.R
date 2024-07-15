@@ -453,7 +453,7 @@ View(pima_indians_diabetes_cor)
 # 1.	density: planting density (1 = low density, 2 = high density)
 # 2.	block: planting location in the field (blocks 1, 2, 3, or 4)
 # 3.	fertilizer: fertilizer type (type 1, 2, or 3)
-# 4.	final crop yield (in bushels per acre)
+# 4.	final crop yield (in bushels per acre) 
 
 # One-Way ANOVA can be used to test the effect of the 3 types of fertilizer on
 # crop yield whereas,
