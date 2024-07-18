@@ -446,8 +446,8 @@ View(pima_indians_diabetes_cor)
 # an imaginary study of the effects of fertilizer type and planting density on
 # crop yield. In other words:
 
-# Dependent variable:	Crop yield
-# Independent variables:	Fertilizer type, planting density, and block
+# Dependent variable =	Crop yield
+# Independent variables =	Fertilizer type, planting density, and block
 
 # The features (attributes) are:
 # 1.	density: planting density (1 = low density, 2 = high density)
